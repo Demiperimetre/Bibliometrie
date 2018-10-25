@@ -174,9 +174,10 @@ M &lt;-<span class="st"> </span><span class="kw">convert2df</span>(D, <span clas
 </div>
 <div id="analyses-basiques" class="section level2">
 <h2><span class="header-section-number">2.2</span> Analyses basiques</h2>
-<p>Les analyses de base sont retournées par la fonction <code>biblioAnalysis</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">BA &lt;-<span class="st"> </span><span class="kw">biblioAnalysis</span>(M)
-<span class="kw">summary</span>(BA, <span class="dt">k=</span><span class="dv">5</span>)</code></pre></div>
+<p>Les analyses de base sont retournées par la fonction <code>biblioAnalysis</code>. Le résultat est un objet de type <code>bibliometrix</code>. Les méthodes <code>summary</code> et <code>plot</code> de cet objet sont malheureusement mal écrites et renvoient tous les résultats à l’écran sans possibilité de les afficher séparément. Pour cette raison, le code ci-dessous reproduit le code original, séparément pour chaque figure.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">k &lt;-<span class="st"> </span><span class="dv">5</span> <span class="co"># Nombre d&#39;auteurs à afficher</span>
+BA &lt;-<span class="st"> </span><span class="kw">biblioAnalysis</span>(M)
+<span class="kw">summary</span>(BA, k)</code></pre></div>
 <pre><code>## 
 ## 
 ## Main Information about data
@@ -236,32 +237,47 @@ M &lt;-<span class="st"> </span><span class="kw">convert2df</span>(D, <span clas
 ## 
 ## Most Productive Authors
 ## 
-##   Authors        Articles Authors        Articles Fractionalized
-## 1     DEJEAN A        120     DEJEAN A                     23.14
-## 2     BARALOTO C       87     BARALOTO C                   14.17
-## 3     ORIVEL J         70     ORIVEL J                     11.16
-## 4     HÉRAULT B        63     HÉRAULT B                    10.96
-## 5     BONAL D          56     CORBARA B                     9.04
+##    Authors        Articles Authors        Articles Fractionalized
+## 1     DEJEAN A         120    DEJEAN A                      23.14
+## 2     BARALOTO C        87    BARALOTO C                    14.17
+## 3     ORIVEL J          70    ORIVEL J                      11.16
+## 4     HÉRAULT B         63    HÉRAULT B                     10.96
+## 5     BONAL D           56    CORBARA B                      9.04
+## 6     CORBARA B         51    LEROY C                        8.31
+## 7     LEROY C           48    BONAL D                        7.30
+## 8     CÉRÉGHINO R       38    SCOTTI I                       6.51
+## 9     STIEN D           38    CLAIR B                        6.47
+## 10    CHAVE J           37    CÉRÉGHINO R                    6.28
 ## 
 ## 
 ## Top manuscripts per citations
 ## 
-##                          Paper           TC TCperYear
-## 1 PHILLIPS OL, 2009, SCIENCE            701      77.9
-## 2 LUYSSAERT S, 2007, GLOBAL CHANGE BIOL 440      40.0
-## 3 TERSTEEGE H, 2013, SCIENCE            254      50.8
-## 4 HARDY OJ, 2006, MOL ECOL              192      16.0
-## 5 MOUILLOT D, 2013, PLOS BIOL           183      36.6
+##                           Paper           TC TCperYear
+## 1  PHILLIPS OL, 2009, SCIENCE            701      77.9
+## 2  LUYSSAERT S, 2007, GLOBAL CHANGE BIOL 440      40.0
+## 3  TERSTEEGE H, 2013, SCIENCE            254      50.8
+## 4  HARDY OJ, 2006, MOL ECOL              192      16.0
+## 5  MOUILLOT D, 2013, PLOS BIOL           183      36.6
+## 6  EVA HD, 2004, GLOBAL CHANGE BIOL      179      12.8
+## 7  SCOTTI-SAINTAGNE C, 2004, GENETICS    172      12.3
+## 8  PHILLIPS OL, 2010, NEW PHYTOL         171      21.4
+## 9  MALHI Y, 2009, GLOBAL CHANGE BIOL     146      16.2
+## 10 FYLLAS NM, 2009, BIOGEOSCIENCES       145      16.1
 ## 
 ## 
 ## Most Productive Countries (of corresponding authors)
 ## 
-##        Country   Articles   Freq SCP MCP MCP_Ratio
-## 1 FRANCE              356 0.7221 202 154     0.433
-## 2 USA                  20 0.0406   3  17     0.850
-## 3 BRAZIL               19 0.0385   0  19     1.000
-## 4 UNITED KINGDOM       19 0.0385   0  19     1.000
-## 5 JAPAN                12 0.0243   3   9     0.750
+##         Country   Articles    Freq SCP MCP MCP_Ratio
+## 1  FRANCE              356 0.72211 202 154     0.433
+## 2  USA                  20 0.04057   3  17     0.850
+## 3  BRAZIL               19 0.03854   0  19     1.000
+## 4  UNITED KINGDOM       19 0.03854   0  19     1.000
+## 5  JAPAN                12 0.02434   3   9     0.750
+## 6  CANADA                9 0.01826   1   8     0.889
+## 7  GERMANY               9 0.01826   0   9     1.000
+## 8  BELGIUM               7 0.01420   0   7     1.000
+## 9  AUSTRALIA             5 0.01014   0   5     1.000
+## 10 CAMEROON              4 0.00811   0   4     1.000
 ## 
 ## 
 ## SCP: Single Country Publications
@@ -271,34 +287,150 @@ M &lt;-<span class="st"> </span><span class="kw">convert2df</span>(D, <span clas
 ## 
 ## Total Citations per Country
 ## 
-##     Country      Total Citations Average Article Citations
-## 1 FRANCE                    6317                      17.7
-## 2 UNITED KINGDOM            1658                      87.3
-## 3 BELGIUM                    711                     101.6
-## 4 USA                        658                      32.9
-## 5 BRAZIL                     328                      17.3
+##      Country      Total Citations Average Article Citations
+## 1  FRANCE                    6317                      17.7
+## 2  UNITED KINGDOM            1658                      87.3
+## 3  BELGIUM                    711                     101.6
+## 4  USA                        658                      32.9
+## 5  BRAZIL                     328                      17.3
+## 6  ITALY                      320                      80.0
+## 7  GERMANY                    283                      31.4
+## 8  NETHERLANDS                254                     254.0
+## 9  JAPAN                      249                      20.8
+## 10 CANADA                     209                      23.2
 ## 
 ## 
 ## Most Relevant Sources
 ## 
-##                  Sources        Articles
-## 1 PLOS ONE                            36
-## 2 ANNALS OF FOREST SCIENCE            34
-## 3 COMPTES RENDUS - BIOLOGIES          16
-## 4 BIOTROPICA                          15
-## 5 FOREST ECOLOGY AND MANAGEMENT       12
+##                   Sources        Articles
+## 1  PLOS ONE                            36
+## 2  ANNALS OF FOREST SCIENCE            34
+## 3  COMPTES RENDUS - BIOLOGIES          16
+## 4  BIOTROPICA                          15
+## 5  FOREST ECOLOGY AND MANAGEMENT       12
+## 6  GLOBAL CHANGE BIOLOGY               11
+## 7  JOURNAL OF ECOLOGY                  11
+## 8  JOURNAL OF ETHNOPHARMACOLOGY        11
+## 9  NATURWISSENSCHAFTEN                 11
+## 10 BIOGEOSCIENCES                      10
 ## 
 ## 
 ## Most Relevant Keywords
 ## 
-##   Author Keywords (DE)      Articles Keywords-Plus (ID)     Articles
-## 1       FRENCH GUIANA             77          FRENCH GUIANA      160
-## 2       TROPICAL FOREST           24          ARTICLE            134
-## 3       TROPICAL RAINFOREST       18          ANT                114
-## 4       TENSION WOOD              15          NONHUMAN            94
-## 5       AMAZON                    12          PHYSIOLOGY          89</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(BA, <span class="dt">k=</span><span class="dv">5</span>)</code></pre></div>
-<p><img src="Bibliometrie_files/figure-html/unnamed-chunk-12-1.png" width="\maxwidth" /><img src="Bibliometrie_files/figure-html/unnamed-chunk-12-2.png" width="\maxwidth" /><img src="Bibliometrie_files/figure-html/unnamed-chunk-12-3.png" width="\maxwidth" /><img src="Bibliometrie_files/figure-html/unnamed-chunk-12-4.png" width="\maxwidth" /><img src="Bibliometrie_files/figure-html/unnamed-chunk-12-5.png" width="\maxwidth" /></p>
+##    Author Keywords (DE)      Articles Keywords-Plus (ID)     Articles
+## 1       FRENCH GUIANA              77          FRENCH GUIANA      160
+## 2       TROPICAL FOREST            24          ARTICLE            134
+## 3       TROPICAL RAINFOREST        18          ANT                114
+## 4       TENSION WOOD               15          NONHUMAN            94
+## 5       AMAZON                     12          PHYSIOLOGY          89
+## 6       AMAZONIA                   12          RAINFOREST          84
+## 7       FUNCTIONAL DIVERSITY       12          ECOSYSTEM           78
+## 8       TROPICAL RAIN FOREST       12          BIODIVERSITY        76
+## 9       BIODIVERSITY               11          TREES               69
+## 10      FUNCTIONAL TRAITS          11          FORMICIDAE          66</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plot(BA) renvoie tous les graphiques à la suite.</span>
+<span class="co"># Le code ci-dessous (copié de plot.bibliometrix) les produit séparément.</span>
+x &lt;-<span class="st"> </span>BA ; xx&lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(x<span class="op">$</span>Authors[<span class="dv">1</span><span class="op">:</span>k])
+<span class="kw">ggplot</span>(<span class="dt">data =</span> xx, <span class="kw">aes</span>(<span class="dt">x =</span> xx<span class="op">$</span>AU, <span class="dt">y =</span> xx<span class="op">$</span>Freq)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, 
+        <span class="dt">fill =</span> <span class="st">&quot;steelblue&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Most productive Authors&quot;</span>, 
+        <span class="dt">x =</span> <span class="st">&quot;Authors&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;N. of Documents&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">        </span><span class="kw">coord_flip</span>()</code></pre></div>
+<p><img src="Bibliometrie_files/figure-html/unnamed-chunk-12-1.png" width="\maxwidth" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">is.na</span>(x<span class="op">$</span>CountryCollaboration[<span class="dv">1</span>, <span class="dv">1</span>])) {
+  xx =<span class="st"> </span>x<span class="op">$</span>CountryCollaboration[<span class="dv">1</span><span class="op">:</span>k,]
+  xx =<span class="st"> </span>xx[<span class="kw">order</span>(<span class="op">-</span>(xx<span class="op">$</span>SCP <span class="op">+</span><span class="st"> </span>xx<span class="op">$</span>MCP)),]
+  xx1 =<span class="st"> </span><span class="kw">cbind</span>(xx[, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="kw">rep</span>(<span class="st">&quot;SCP&quot;</span>, k))
+  <span class="kw">names</span>(xx1) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Freq&quot;</span>, <span class="st">&quot;Collaboration&quot;</span>)
+  xx2 =<span class="st"> </span><span class="kw">cbind</span>(xx[, <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)], <span class="kw">rep</span>(<span class="st">&quot;MCP&quot;</span>, k))
+  <span class="kw">names</span>(xx2) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Freq&quot;</span>, <span class="st">&quot;Collaboration&quot;</span>)
+  xx =<span class="st"> </span><span class="kw">rbind</span>(xx2, xx1)
+  xx<span class="op">$</span>Country =<span class="st"> </span><span class="kw">factor</span>(xx<span class="op">$</span>Country, <span class="dt">levels =</span> xx<span class="op">$</span>Country[<span class="dv">1</span><span class="op">:</span><span class="kw">dim</span>(xx2)[<span class="dv">1</span>]])
+  <span class="kw">ggplot</span>(<span class="dt">data =</span> xx, <span class="kw">aes</span>(<span class="dt">x =</span> xx<span class="op">$</span>Country, <span class="dt">y =</span> xx<span class="op">$</span>Freq, <span class="dt">fill =</span> xx<span class="op">$</span>Collaboration)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_x_discrete</span>(<span class="dt">limits =</span> <span class="kw">rev</span>(<span class="kw">levels</span>(xx<span class="op">$</span>Country))) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_fill_discrete</span>(<span class="dt">name =</span> <span class="st">&quot;Collaboration&quot;</span>, <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="st">&quot;SCP&quot;</span>, <span class="st">&quot;MCP&quot;</span>)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>( <span class="dt">title =</span> <span class="st">&quot;Most Productive Countries&quot;</span>,
+          <span class="dt">x =</span> <span class="st">&quot;Countries&quot;</span>,
+          <span class="dt">y =</span> <span class="st">&quot;N. of Documents&quot;</span>,
+          <span class="dt">caption =</span> <span class="st">&quot;SCP: Single Country Publications, MCP: Multiple Country Publications&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">theme</span>(<span class="dt">plot.caption =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">9</span>, <span class="dt">hjust =</span> <span class="fl">0.5</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">face =</span> <span class="st">&quot;italic&quot;</span>)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">coord_flip</span>()
+}</code></pre></div>
+<p><img src="Bibliometrie_files/figure-html/unnamed-chunk-12-2.png" width="\maxwidth" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Tab =<span class="st"> </span><span class="kw">table</span>(x<span class="op">$</span>Years)
+YY =<span class="st"> </span><span class="kw">setdiff</span>(<span class="kw">seq</span>(<span class="kw">min</span>(x<span class="op">$</span>Years), <span class="kw">max</span>(x<span class="op">$</span>Years)), <span class="kw">names</span>(Tab))
+Y =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">as.numeric</span>(<span class="kw">c</span>(<span class="kw">names</span>(Tab), YY)), 
+               <span class="dt">Freq =</span> <span class="kw">c</span>(<span class="kw">as.numeric</span>(Tab), <span class="kw">rep</span>(<span class="dv">0</span>, <span class="kw">length</span>(YY))))
+Y =<span class="st"> </span>Y[<span class="kw">order</span>(Y<span class="op">$</span>Year),]
+<span class="kw">names</span>(Y) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Freq&quot;</span>)
+<span class="kw">ggplot</span>(Y, <span class="kw">aes</span>(<span class="dt">x =</span> Y<span class="op">$</span>Year, <span class="dt">y =</span> Y<span class="op">$</span>Freq)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_area</span>(<span class="dt">fill =</span> <span class="st">&quot;#002F80&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Articles&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Annual Scientific Production&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> (Y<span class="op">$</span>Year[<span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">length</span>(Y<span class="op">$</span>Year), <span class="dt">by =</span> <span class="dv">2</span>)])) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;#444444&quot;</span>),
+    <span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;#EFEFEF&quot;</span>),
+    <span class="dt">panel.grid.minor =</span> <span class="kw">element_line</span>(<span class="dt">color =</span> <span class="st">&quot;#FFFFFF&quot;</span>),
+    <span class="dt">panel.grid.major =</span> <span class="kw">element_line</span>(<span class="dt">color =</span> <span class="st">&quot;#FFFFFF&quot;</span>),
+    <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">24</span>),
+    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>, <span class="dt">color =</span> <span class="st">&quot;#555555&quot;</span>),
+    <span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">vjust =</span> <span class="dv">1</span>, <span class="dt">angle =</span> <span class="dv">0</span>),
+    <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="dv">0</span>))</code></pre></div>
+<p><img src="Bibliometrie_files/figure-html/unnamed-chunk-12-3.png" width="\maxwidth" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Table2 =<span class="st"> </span><span class="ot">NA</span>
+<span class="cf">if</span> (<span class="op">!</span>(x<span class="op">$</span>DB <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;COCHRANE&quot;</span>, <span class="st">&quot;PUBMED&quot;</span>))) {
+  Table2 =<span class="st"> </span><span class="kw">aggregate</span>(x<span class="op">$</span>TotalCitation, <span class="dt">by =</span> <span class="kw">list</span>(x<span class="op">$</span>Years), length)
+  Table2<span class="op">$</span>xx =<span class="st"> </span><span class="kw">aggregate</span>(x<span class="op">$</span>TotalCitation, <span class="dt">by =</span> <span class="kw">list</span>(x<span class="op">$</span>Years), mean)<span class="op">$</span>x
+  Table2<span class="op">$</span>Annual =<span class="st"> </span><span class="ot">NA</span>
+  d =<span class="st"> </span><span class="kw">date</span>()
+  d =<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">substring</span>(d, <span class="kw">nchar</span>(d) <span class="op">-</span><span class="st"> </span><span class="dv">3</span>, <span class="kw">nchar</span>(d)))
+  Table2<span class="op">$</span>Years =<span class="st"> </span>d <span class="op">-</span><span class="st"> </span>Table2<span class="op">$</span>Group.<span class="dv">1</span>
+  Table2<span class="op">$</span>Annual =<span class="st"> </span>Table2<span class="op">$</span>xx <span class="op">/</span><span class="st"> </span>Table2<span class="op">$</span>Years
+  <span class="kw">names</span>(Table2) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;N&quot;</span>, <span class="st">&quot;MeanTCperArt&quot;</span>, <span class="st">&quot;MeanTCperYear&quot;</span>, <span class="st">&quot;CitableYears&quot;</span>)
+  YY =<span class="st"> </span><span class="kw">setdiff</span>(<span class="kw">seq</span>(<span class="kw">min</span>(x<span class="op">$</span>Years), <span class="kw">max</span>(x<span class="op">$</span>Years)), Table2<span class="op">$</span>Year)
+  <span class="cf">if</span> (<span class="kw">length</span>(YY <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)) {
+    YY =<span class="st"> </span><span class="kw">data.frame</span>(YY, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)
+    <span class="kw">names</span>(YY) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;N&quot;</span>, <span class="st">&quot;MeanTCperArt&quot;</span>, <span class="st">&quot;MeanTCperYear&quot;</span>, <span class="st">&quot;CitableYears&quot;</span>)
+    Table2 =<span class="st"> </span><span class="kw">rbind</span>(Table2, YY)
+    Table2 =<span class="st"> </span>Table2[<span class="kw">order</span>(Table2<span class="op">$</span>Year),]
+    <span class="kw">row.names</span>(Table2) =<span class="st"> </span>Table2<span class="op">$</span>Year
+ }
+  <span class="kw">ggplot</span>(Table2, <span class="kw">aes</span>(<span class="dt">x =</span> Table2<span class="op">$</span>Year, <span class="dt">y =</span> Table2<span class="op">$</span>MeanTCperYear)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_area</span>(<span class="dt">fill =</span> <span class="st">&quot;#002F80&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Citations&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Average Article Citations per Year&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> (Table2<span class="op">$</span>Year[<span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">length</span>(Table2<span class="op">$</span>Year), <span class="dt">by =</span> <span class="dv">2</span>)])) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">theme</span>(
+      <span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;#444444&quot;</span>),
+      <span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;#EFEFEF&quot;</span>),
+      <span class="dt">panel.grid.minor =</span> <span class="kw">element_line</span>(<span class="dt">color =</span> <span class="st">&quot;#FFFFFF&quot;</span>),
+      <span class="dt">panel.grid.major =</span> <span class="kw">element_line</span>(<span class="dt">color =</span> <span class="st">&quot;#FFFFFF&quot;</span>),
+      <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">24</span>),
+      <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>,
+      <span class="dt">color =</span> <span class="st">&quot;#555555&quot;</span>),
+      <span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">vjust =</span> <span class="dv">1</span>,
+      <span class="dt">angle =</span> <span class="dv">0</span>),
+      <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="dv">0</span>)
+      )
+  
+  <span class="kw">ggplot</span>(Table2, <span class="kw">aes</span>(<span class="dt">x =</span> Table2<span class="op">$</span>Year, <span class="dt">y =</span> Table2<span class="op">$</span>MeanTCperArt)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_area</span>(<span class="dt">fill =</span> <span class="st">&quot;#002F80&quot;</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Year&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Citations&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;Average Total Citations per Year&quot;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> (Table2<span class="op">$</span>Year[<span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">length</span>(Table2<span class="op">$</span>Year), <span class="dt">by =</span> <span class="dv">2</span>)])) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">theme</span>(
+      <span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">&quot;#444444&quot;</span>),
+      <span class="dt">panel.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;#EFEFEF&quot;</span>),
+      <span class="dt">panel.grid.minor =</span> <span class="kw">element_line</span>(<span class="dt">color =</span> <span class="st">&quot;#FFFFFF&quot;</span>),
+      <span class="dt">panel.grid.major =</span> <span class="kw">element_line</span>(<span class="dt">color =</span> <span class="st">&quot;#FFFFFF&quot;</span>),
+      <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">24</span>),
+      <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="dv">14</span>, <span class="dt">color =</span> <span class="st">&quot;#555555&quot;</span>),
+      <span class="dt">axis.title.y =</span> <span class="kw">element_text</span>(<span class="dt">vjust =</span> <span class="dv">1</span>, <span class="dt">angle =</span> <span class="dv">0</span>),
+      <span class="dt">axis.title.x =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="dv">0</span>, <span class="dt">angle =</span> <span class="dv">0</span>)
+    )
+}</code></pre></div>
+<p><img src="Bibliometrie_files/figure-html/unnamed-chunk-12-4.png" width="\maxwidth" /></p>
 </div>
 <div id="documents-et-auteurs-cites" class="section level2">
 <h2><span class="header-section-number">2.3</span> Documents et auteurs cités</h2>
@@ -306,10 +438,11 @@ M &lt;-<span class="st"> </span><span class="kw">convert2df</span>(D, <span clas
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">CAR &lt;-<span class="st"> </span><span class="kw">citations</span>(M, <span class="dt">field =</span> <span class="st">&quot;article&quot;</span>)
 CAR<span class="op">$</span>Cited[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>] <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>as_tibble <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">Article=</span>CR, <span class="dt">Citations=</span>n) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">caption=</span><span class="st">&quot;Citations les plus fréquentes par les documents de la base de données bibliographique&quot;</span>,
-             <span class="dt">longtable =</span> <span class="ot">TRUE</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>)</code></pre></div>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">Article =</span> CR, <span class="dt">Citations=</span>n) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">caption =</span>
+      <span class="st">&quot;Citations les plus fréquentes par les documents de la base de données bibliographique&quot;</span>,
+      <span class="dt">longtable =</span> <span class="ot">TRUE</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">full_width=</span><span class="ot">TRUE</span>, <span class="dt">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>)</code></pre></div>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:unnamed-chunk-13">Table 2.1: </span>Citations les plus fréquentes par les documents de la base de données bibliographique
@@ -372,8 +505,9 @@ WEIR, B.S., COCKERHAM, C.C., ESTIMATING F-STATISTICS FOR THE ANALYSIS OF POPULAT
 CAU<span class="op">$</span>Cited[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>] <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span>as_tibble <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">rename</span>(<span class="dt">Auteur=</span>CR, <span class="dt">Citations=</span>n) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="dt">caption=</span><span class="st">&quot;Auteurs les plus cités par les documents de la base de données bibliographique&quot;</span>,
-             <span class="dt">longtable =</span> <span class="ot">TRUE</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(
+    <span class="dt">caption=</span><span class="st">&quot;Auteurs les plus cités par les documents de la base de données bibliographique&quot;</span>,
+    <span class="dt">longtable =</span> <span class="ot">TRUE</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>)</code></pre></div>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -439,9 +573,11 @@ PHILLIPS, O.L
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NbCountries &lt;-<span class="st"> </span><span class="dv">15</span>
 <span class="co"># Create a country collaboration network</span>
 mAU_CO &lt;-<span class="st"> </span><span class="kw">metaTagExtraction</span>(M, <span class="dt">Field =</span> <span class="st">&quot;AU_CO&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>)
-NetMatrix &lt;-<span class="st"> </span><span class="kw">biblioNetwork</span>(mAU_CO, <span class="dt">analysis =</span> <span class="st">&quot;collaboration&quot;</span>, <span class="dt">network =</span> <span class="st">&quot;countries&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>)
+NetMatrix &lt;-<span class="st"> </span><span class="kw">biblioNetwork</span>(mAU_CO, <span class="dt">analysis =</span> <span class="st">&quot;collaboration&quot;</span>, 
+    <span class="dt">network =</span> <span class="st">&quot;countries&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;;&quot;</span>)
 <span class="co"># Plot the network</span>
-netC &lt;-<span class="st"> </span><span class="kw">networkPlot</span>(NetMatrix, <span class="dt">n =</span> NbCountries, <span class="dt">Title =</span> <span class="st">&quot;Country Collaboration&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;circle&quot;</span>, <span class="dt">size=</span><span class="ot">TRUE</span>, <span class="dt">remove.multiple=</span><span class="ot">FALSE</span>)</code></pre></div>
+netC &lt;-<span class="st"> </span><span class="kw">networkPlot</span>(NetMatrix, <span class="dt">n =</span> NbCountries, <span class="dt">Title =</span> <span class="st">&quot;Country Collaboration&quot;</span>, 
+    <span class="dt">type =</span> <span class="st">&quot;circle&quot;</span>, <span class="dt">size =</span> <span class="ot">TRUE</span>, <span class="dt">remove.multiple =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <p><img src="Bibliometrie_files/figure-html/unnamed-chunk-15-1.png" width="\maxwidth" /></p>
 <p>Le réseau des auteurs est obtenu de la même façon.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NbAuthors &lt;-<span class="st"> </span><span class="dv">15</span>
