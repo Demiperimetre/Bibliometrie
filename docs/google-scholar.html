@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html  lang="french">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bibliométrie</title>
+  <meta name="description" content="Bibliométrie">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Bibliométrie" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bibliométrie" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="scopus-et-web-of-science.html">
+<style type="text/css">
+p.abstract{
+  text-align: center;
+  font-weight: bold;
+}
+div.abstract{
+  margin: auto;
+  width: 90%;
+}
+</style>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="google-scholar.html"><a href="google-scholar.html"><i class="fa fa-check"></i><b>1</b> Google Scholar</a><ul>
+<li class="chapter" data-level="1.1" data-path="google-scholar.html"><a href="google-scholar.html#information-sur-lauteur"><i class="fa fa-check"></i><b>1.1</b> Information sur l’auteur</a></li>
+<li class="chapter" data-level="1.2" data-path="google-scholar.html"><a href="google-scholar.html#liste-des-publications"><i class="fa fa-check"></i><b>1.2</b> Liste des publications</a></li>
+<li class="chapter" data-level="1.3" data-path="google-scholar.html"><a href="google-scholar.html#citations-par-annee"><i class="fa fa-check"></i><b>1.3</b> Citations par année</a></li>
+<li class="chapter" data-level="1.4" data-path="google-scholar.html"><a href="google-scholar.html#reseau-dauteurs"><i class="fa fa-check"></i><b>1.4</b> Réseau d’auteurs</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="scopus-et-web-of-science.html"><a href="scopus-et-web-of-science.html"><i class="fa fa-check"></i><b>2</b> Scopus et Web of Science</a><ul>
+<li class="chapter" data-level="2.1" data-path="scopus-et-web-of-science.html"><a href="scopus-et-web-of-science.html#lecture-des-donnees"><i class="fa fa-check"></i><b>2.1</b> Lecture des données</a></li>
+<li class="chapter" data-level="2.2" data-path="scopus-et-web-of-science.html"><a href="scopus-et-web-of-science.html#analyses-basiques"><i class="fa fa-check"></i><b>2.2</b> Analyses basiques</a></li>
+<li class="chapter" data-level="2.3" data-path="scopus-et-web-of-science.html"><a href="scopus-et-web-of-science.html#documents-et-auteurs-cites"><i class="fa fa-check"></i><b>2.3</b> Documents et auteurs cités</a></li>
+<li class="chapter" data-level="2.4" data-path="scopus-et-web-of-science.html"><a href="scopus-et-web-of-science.html#collaborations"><i class="fa fa-check"></i><b>2.4</b> Collaborations</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="analyse-des-resumes.html"><a href="analyse-des-resumes.html"><i class="fa fa-check"></i><b>3</b> Analyse des résumés</a><ul>
+<li class="chapter" data-level="3.1" data-path="analyse-des-resumes.html"><a href="analyse-des-resumes.html#corpus"><i class="fa fa-check"></i><b>3.1</b> Corpus</a></li>
+<li class="chapter" data-level="3.2" data-path="analyse-des-resumes.html"><a href="analyse-des-resumes.html#nettoyage-du-corpus"><i class="fa fa-check"></i><b>3.2</b> Nettoyage du corpus</a></li>
+<li class="chapter" data-level="3.3" data-path="analyse-des-resumes.html"><a href="analyse-des-resumes.html#mots-du-corpus"><i class="fa fa-check"></i><b>3.3</b> Mots du corpus</a></li>
+<li class="chapter" data-level="3.4" data-path="analyse-des-resumes.html"><a href="analyse-des-resumes.html#nuage-de-mots"><i class="fa fa-check"></i><b>3.4</b> Nuage de mots</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Bibliométrie</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Bibliométrie</h1>
+<h4 class="author"><em>Eric Marcon</em></h4>
+<h4 class="date"><em>25 octobre 2018</em></h4>
+<div class="abstract">
+<p class="abstract">Abstract</p>
+<p>Utilisation de Google Scholar et de Scopus avec R pour analyser les publications d’une structure ou d’un auteur.</p>
+</div>
+</div>
+<div id="google-scholar" class="section level1">
+<h1><span class="header-section-number">1</span> Google Scholar</h1>
+<p>Le package <em>scholar</em> permet d’accéder à l’API de Google Scholar. L’objectif est d’analyser la production d’un auteur (ou d’une structure) disposant d’un identifiant, donc d’une page, Google Scholar.</p>
+<p>Le paramètre de base est l’identifiant de l’auteur :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">AuthorID &lt;-<span class="st"> &quot;4iLBmbUAAAAJ&quot;</span> <span class="co"># Eric Marcon</span>
+<span class="co"># AuthorID &lt;- &quot;8XqZyDUAAAAJ&quot; # UMR EcoFoG</span></code></pre></div>
+<p>La vignette du package fournit la majorité du code utile.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">vignette</span>(<span class="dt">topic =</span> <span class="st">&quot;scholar&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;scholar&quot;</span>)</code></pre></div>
+<div id="information-sur-lauteur" class="section level2">
+<h2><span class="header-section-number">1.1</span> Information sur l’auteur</h2>
+<p>La fonction <code>get_profile</code> retourne une liste avec les informations sur l’auteur.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;scholar&quot;</span>)
+<span class="kw">get_profile</span>(AuthorID)</code></pre></div>
+<pre><code>## $id
+## [1] &quot;4iLBmbUAAAAJ&quot;
+## 
+## $name
+## [1] &quot;Eric Marcon&quot;
+## 
+## $affiliation
+## [1] &quot;UMR EcoFoG, AgroParisTech&quot;
+## 
+## $total_cites
+## [1] 1079
+## 
+## $h_index
+## [1] 15
+## 
+## $i10_index
+## [1] 18
+## 
+## $fields
+## [1] &quot;verified email at ecofog.gf - homepage&quot;
+## 
+## $homepage
+## [1] &quot;http://www.ecofog.gf/spip.php?article16&quot;
+## 
+## $coauthors
+##  [1] &quot;Puech Florence&quot;       
+##  [2] &quot;Bruno Hérault&quot;        
+##  [3] &quot;Gabriel Lang&quot;         
+##  [4] &quot;Baraloto Christopher&quot; 
+##  [5] &quot;Sabrina Coste&quot;        
+##  [6] &quot;Heidy Schimann&quot;       
+##  [7] &quot;Céline Leroy&quot;         
+##  [8] &quot;Jerome Chave&quot;         
+##  [9] &quot;Lilian Blanc&quot;         
+## [10] &quot;Sandrine Pavoine&quot;     
+## [11] &quot;Zhiyi Zhang&quot;          
+## [12] &quot;Vivien Rossi&quot;         
+## [13] &quot;Ivan Scotti&quot;          
+## [14] &quot;Céline Born&quot;          
+## [15] &quot;François Morneau&quot;     
+## [16] &quot;Cecile Richard-Hansen&quot;
+## [17] &quot;Guitet&quot;               
+## [18] &quot;Carlo Ricotta&quot;        
+## [19] &quot;Michael Grabchak&quot;     
+## [20] &quot;S. T. Buckland&quot;</code></pre>
+</div>
+<div id="liste-des-publications" class="section level2">
+<h2><span class="header-section-number">1.2</span> Liste des publications</h2>
+<p>La fonction <code>get_publications</code> retourne un dataframe contenant toutes les publications. Les colonnes contiennent le titre, la liste des auteurs (séparés par des virgules), le nom du journal, la pagination (sous la forme Volume (nnuméro), pages), le nombre de citations et les années correspondantes (sous la forme de vecteurs), et deux identifiants internes de la publication (<code>cid</code> et <code>pubid</code>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Publications &lt;-<span class="st"> </span><span class="kw">get_publications</span>(AuthorID)
+<span class="kw">str</span>(Publications)</code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    43 obs. of  8 variables:
+##  $ title  : Factor w/ 43 levels &quot;‘Equivalent numbers’ for species, phylogenetic or functional diversity in a nested hierarchy of multiple scales&quot;,..: 17 25 7 14 15 18 28 38 42 19 ...
+##  $ author : Factor w/ 28 levels &quot;C Baraloto, E Marcon, F Morneau, S Pavoine, JC Roggy&quot;,..: 9 9 26 21 7 12 4 8 3 9 ...
+##  $ journal: Factor w/ 26 levels &quot;&quot;,&quot;AgroParisTech&quot;,..: 17 17 4 8 18 23 1 22 3 1 ...
+##  $ number : Factor w/ 28 levels &quot;&quot;,&quot;10 (5), 745-762&quot;,..: 14 2 24 8 25 28 1 5 20 1 ...
+##  $ cites  : num  275 166 120 110 59 39 35 33 30 26 ...
+##  $ year   : num  2003 2010 2010 2009 2015 ...
+##  $ cid    : Factor w/ 30 levels &quot;10042829823505144016&quot;,..: 17 28 15 22 13 21 25 14 10 2 ...
+##  $ pubid  : Factor w/ 43 levels &quot;-_dYPAW6P2MC&quot;,..: 32 9 21 31 28 17 19 42 15 34 ...</code></pre>
+</div>
+<div id="citations-par-annee" class="section level2">
+<h2><span class="header-section-number">1.3</span> Citations par année</h2>
+<p>Evolution du nombre de citations d’un auteur :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)
+  
+<span class="kw">get_citation_history</span>(AuthorID) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> year, <span class="dt">y =</span> cites)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">    </span><span class="co"># https://www.r-bloggers.com/put-google-scholar-citations-on-your-personal-website-with-r-scholar-ggplot2-and-cron/</span>
+<span class="st">    </span><span class="kw">annotate</span>(<span class="st">&#39;text&#39;</span>, <span class="dt">label =</span> <span class="kw">format</span>(<span class="kw">Sys.time</span>(), <span class="st">&quot;%Y-%m-%d %H:%M:%S %Z&quot;</span>),
+             <span class="dt">x =</span> <span class="op">-</span><span class="ot">Inf</span>, <span class="dt">y =</span> <span class="ot">Inf</span>, <span class="dt">vjust =</span> <span class="fl">1.5</span>, <span class="dt">hjust =</span> <span class="op">-</span><span class="fl">0.05</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">colour =</span> <span class="st">&#39;gray&#39;</span>)</code></pre></div>
+<p><img src="Bibliometrie_files/figure-html/unnamed-chunk-5-1.png" width="\maxwidth" /></p>
+<p>Suivi d’un article en particulier (le plus cité: les articles sont classés par ordre décroissant du nombre de citations) :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NumArticle &lt;-<span class="st"> </span><span class="dv">1</span>
+Reference &lt;-<span class="st"> </span><span class="kw">with</span>(Publications[NumArticle, ], 
+  <span class="kw">paste</span>(author, <span class="st">&quot; (&quot;</span>, year, <span class="st">&quot;) &quot;</span>, journal, <span class="st">&quot;. &quot;</span>, number, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>))
+<span class="kw">get_article_cite_history</span>(AuthorID, Publications<span class="op">$</span>pubid[NumArticle]) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(year, cites)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend =</span> year, <span class="dt">yend =</span> <span class="dv">0</span>), <span class="dt">size=</span><span class="dv">1</span>, <span class="dt">color=</span><span class="st">&#39;darkgrey&#39;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size=</span><span class="dv">3</span>, <span class="dt">color=</span><span class="st">&#39;firebrick&#39;</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">caption =</span> Reference)</code></pre></div>
+<p><img src="Bibliometrie_files/figure-html/unnamed-chunk-6-1.png" width="\maxwidth" /></p>
+</div>
+<div id="reseau-dauteurs" class="section level2">
+<h2><span class="header-section-number">1.4</span> Réseau d’auteurs</h2>
+<p><code>get_coauthors</code> retourne un dataframe contenant les coauteurs déclarés par l’auteur sur sa page et leurs coauteurs. La profondeur <code>n_deep</code> du graphe permet d’augmenter le nombre de niveaux de coauteurs mais ne peut pas être mise à 0 pour obtenir seulement les coauteurs directs. Les valeurs par défaut sont 5 coauteurs et une profondeur de 1.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_coauthors</span>(AuthorID, <span class="dt">n_coauthors =</span> <span class="dv">7</span>, <span class="dt">n_deep=</span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>plot_coauthors</code></pre></div>
+<p><img src="Bibliometrie_files/figure-html/unnamed-chunk-7-1.png" width="\maxwidth" /></p>
+<p>Les coateurs réels, définis par le nombre de publications écrites en commun, est à rechercher dans le tableau des publications.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Paramètres</span>
+MinCopublications &lt;-<span class="st"> </span><span class="dv">2</span>
+MaxCoauteurs &lt;-<span class="st"> </span><span class="dv">100</span>
+
+<span class="kw">library</span>(<span class="st">&quot;magrittr&quot;</span>)
+<span class="co"># Vecteur des coauteurs de publications, sans accents</span>
+Publications <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">AuthorsASCII=</span><span class="kw">iconv</span>(author, <span class="dt">from=</span><span class="st">&quot;UTF-8&quot;</span>, <span class="dt">to=</span><span class="st">&quot;ASCII//TRANSLIT&quot;</span>)) <span class="op">%$%</span><span class="st"> </span>
+<span class="st">  </span>AuthorsASCII -&gt;
+<span class="st">  </span>AuthorsASCII
+<span class="co"># Auteurs uniques</span>
+AuthorsASCII <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">paste</span>(<span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">str_split</span>(<span class="dt">pattern=</span><span class="st">&quot;, &quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>unlist <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>unique -&gt;
+<span class="st">  </span>UniqueAuthors
+<span class="co"># Elimination de ... (= et al.)</span>
+UniqueAuthors &lt;-<span class="st"> </span>UniqueAuthors[UniqueAuthors <span class="op">!=</span><span class="st"> &quot;...&quot;</span>]
+<span class="co"># Matrice d&#39;autorat: une ligne par articles, auteurs en colonnes, valeurs logiques</span>
+PaperAuthoredBy &lt;-<span class="st"> </span><span class="kw">sapply</span>(UniqueAuthors, <span class="cf">function</span>(Author) <span class="kw">str_detect</span>(AuthorsASCII, Author))
+<span class="co"># Filtrage des auteurs</span>
+<span class="kw">tibble</span>(<span class="dt">Author=</span>UniqueAuthors, <span class="dt">NbPapers=</span><span class="kw">colSums</span>(PaperAuthoredBy)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(NbPapers <span class="op">&gt;=</span><span class="st"> </span>MinCopublications) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(NbPapers)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>MaxCoauteurs) -&gt;
+<span class="st">  </span>NbPapersPerAuthor
+<span class="co"># Recalcul de la matrice d&#39;autorat réduite</span>
+PaperAuthoredBy &lt;-<span class="st"> </span><span class="kw">sapply</span>(NbPapersPerAuthor<span class="op">$</span>Author, <span class="cf">function</span>(Author) <span class="kw">str_detect</span>(AuthorsASCII, Author))
+<span class="co"># Matrice d&#39;adjacence</span>
+adjacencyMatrix &lt;-<span class="st"> </span><span class="kw">t</span>(PaperAuthoredBy) <span class="op">%*%</span><span class="st"> </span>PaperAuthoredBy
+<span class="co"># Graphe d&#39;adjacence  </span>
+<span class="co"># (https://paulvanderlaken.com/2017/10/31/network-visualization-with-igraph-and-ggraph/)</span>
+<span class="kw">library</span>(<span class="st">&quot;igraph&quot;</span>)
+g &lt;-<span class="st"> </span><span class="kw">graph.adjacency</span>(adjacencyMatrix, <span class="dt">mode =</span> <span class="st">&quot;undirected&quot;</span>, <span class="dt">diag =</span> <span class="ot">FALSE</span>)
+<span class="kw">V</span>(g)<span class="op">$</span>Degree &lt;-<span class="st"> </span><span class="kw">degree</span>(g, <span class="dt">mode =</span> <span class="st">&#39;in&#39;</span>) <span class="co"># Nombre de liens</span>
+<span class="kw">V</span>(g)<span class="op">$</span>Name &lt;-<span class="st"> </span>NbPapersPerAuthor<span class="op">$</span>Author <span class="co"># Etiquettes des noeuds</span>
+<span class="co"># Figure</span>
+<span class="kw">library</span>(<span class="st">&quot;ggraph&quot;</span>)
+<span class="kw">ggraph</span>(g, <span class="dt">layout =</span> <span class="st">&quot;auto&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_edge_diagonal</span>(<span class="dt">alpha =</span> <span class="dv">1</span>, <span class="dt">label_colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_node_label</span>(<span class="kw">aes</span>(<span class="dt">label =</span> Name, <span class="dt">size =</span> <span class="kw">log</span>(Degree), <span class="dt">fill =</span> Degree)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_gradient</span>(<span class="dt">high =</span> <span class="st">&quot;blue&quot;</span>, <span class="dt">low =</span> <span class="st">&quot;lightblue&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill =</span> <span class="st">&quot;beige&quot;</span>),
+    <span class="dt">panel.border =</span> <span class="kw">element_blank</span>(),
+    <span class="dt">panel.grid =</span> <span class="kw">element_blank</span>(),
+    <span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>,
+    <span class="dt">axis.text =</span> <span class="kw">element_blank</span>(), 
+    <span class="dt">axis.title =</span> <span class="kw">element_blank</span>(),
+    <span class="dt">axis.ticks =</span> <span class="kw">element_blank</span>()) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="kw">paste</span>(<span class="st">&quot;Coauthorship Network of&quot;</span>, <span class="kw">get_profile</span>(AuthorID)<span class="op">$</span>name),
+       <span class="dt">subtitle =</span> <span class="st">&quot;Publications with more than one Google Scholar citation included&quot;</span>,
+       <span class="dt">caption =</span> <span class="kw">paste</span>(<span class="st">&quot;Coauthors with at least&quot;</span>, MinCopublications, <span class="st">&quot;copublications&quot;</span>))</code></pre></div>
+<p><img src="Bibliometrie_files/figure-html/unnamed-chunk-8-1.png" width="\maxwidth" /></p>
+<p>Nombres de publications :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(NbPapersPerAuthor, <span class="dt">caption=</span><span class="st">&quot;Nombre de documents par auteur&quot;</span>,
+             <span class="dt">longtable =</span> <span class="ot">TRUE</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>kableExtra<span class="op">::</span><span class="kw">kable_styling</span>(<span class="dt">bootstrap_options =</span> <span class="st">&quot;striped&quot;</span>)</code></pre></div>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-9">Table 1.1: </span>Nombre de documents par auteur
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:right;">
+NbPapers
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+E Marcon
+</td>
+<td style="text-align:right;">
+43
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F Puech
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+G Lang
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+B Herault
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C Baraloto
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+S Traissac
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+S Pavoine
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+S Coste
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D Bonal
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+JC Roggy
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Z Zhang
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="scopus-et-web-of-science.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+},
+"search": false
+});
+});
+</script>
+
+</body>
+
+</html>
